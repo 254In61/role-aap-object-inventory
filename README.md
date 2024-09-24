@@ -1,2 +1,2 @@
-# role-aap-object-inventory
-Ansible role to build AAP inventory object
+# role-aap-object-credential
+Ansible role to build AAP credential objects

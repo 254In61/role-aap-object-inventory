@@ -1,0 +1,50 @@
+---
+# inventory
+- name: Inventory.yml - Create inventory object
+  ansible.controller.inventory:
+    name: "{{ inventory_name }}"
+    description: "{{ common_description }}"
+    organization: "{{ organization_name }}"
+    state: present
+
+# when you have your inventory file stored in a git repository
+- name: Inventory.yml - Add an inventory source
+  ansible.controller.inventory_source:
+    name: "{{ inventory_source_name }}"
+    description: "{{ common_description }}"
+    inventory: "{{ inventory_name }}"
+    credential: "{{ git_credential[0] }}"
+    overwrite: true
+    update_on_launch: true
+    organization: "{{ organization_name }}"
+    source: scm
+    source_path: "{{ inventory_source_file_path }}"
+    source_project: "{{ project_name }}"
+    state: present
+    # scm_branch: "{{ project_git_branch }}"
+
+# Incase you need to hard-code inventory on AAP
+
+# # CISCO
+# - name: Inventory.yml - Create cisco host object
+#   ansible.controller.host:
+#     name: "{{ item }}"
+#     description: "{{ common_description }}"
+#     inventory: "{{ redhat_test_inventory_name }}"
+#     state: present
+#     enabled: true
+#   loop: "{{ test_cisco_grp_hosts }}"
+
+# - name: Inventory.yml - Create cisco host group object
+#   ansible.controller.group:
+#     name: "{{ test_cisco_grp }}"
+#     description: "{{ common_description }}"
+#     inventory: "{{ redhat_test_inventory_name  }}"
+#     hosts: "{{ item }}"
+#     preserve_existing_hosts: True
+#     preserve_existing_children: True
+#   loop: "{{ test_cisco_grp_hosts }}"
+
+
+
+

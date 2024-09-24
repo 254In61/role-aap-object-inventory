@@ -1,0 +1,4 @@
+---
+- name: Import inventory tasks
+  ansible.builtin.import_tasks: inventory.yml
+  when: inventory | bool
