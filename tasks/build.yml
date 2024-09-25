@@ -2,24 +2,24 @@
 # inventory
 - name: Inventory.yml - Create inventory object
   ansible.controller.inventory:
-    name: "{{ inventory_name }}"
-    description: "{{ common_description }}"
-    organization: "{{ organization_name }}"
+    name: "{{ inventory }}"
+    description: "{{ description }}"
+    organization: "{{ organization }}"
     state: present
 
 # when you have your inventory file stored in a git repository
 - name: Inventory.yml - Add an inventory source
   ansible.controller.inventory_source:
-    name: "{{ inventory_source_name }}"
-    description: "{{ common_description }}"
-    inventory: "{{ inventory_name }}"
-    credential: "{{ git_credential[0] }}"
+    name: "{{ inventory_source }}"
+    description: "{{ description }}"
+    inventory: "{{ inventory }}"
+    credential: "{{ credential  }}"
     overwrite: true
     update_on_launch: true
-    organization: "{{ organization_name }}"
+    organization: "{{ organization }}"
     source: scm
-    source_path: "{{ inventory_source_file_path }}"
-    source_project: "{{ project_name }}"
+    source_path: "{{ source_path }}"
+    source_project: "{{ project }}"
     state: present
     # scm_branch: "{{ project_git_branch }}"
 
