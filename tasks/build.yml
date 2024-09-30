@@ -22,6 +22,8 @@
     source_project: "{{ project }}"
     state: present
     # scm_branch: "{{ project_git_branch }}"
+    overwrite_vars: true # Override vars in child groups and hosts with those from external source.
+    overwrite: true    # Delete child groups and hosts not found in source.
 
 # Incase you need to hard-code inventory on AAP
 
