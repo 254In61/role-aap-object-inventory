@@ -1,0 +1,27 @@
+---
+- name: Playbook to configure AAP
+  hosts: localhost
+  gather_facts: false
+ 
+  pre_tasks:
+    - name: Include specific project variables
+      ansible.builtin.include_vars:
+        dir: group_vars
+
+  tasks:
+    !
+    !
+    - name: Import inventory role
+      ansible.builtin.import_role:
+        name: role-aap-object-inventory
+      vars:
+        build: true
+        inventory: "{{ inventory_name }}"
+        inventory_source: "{{ inventory_source_name }}"
+        source_path: "{{ inventory_source_file_path }}"
+        organization: "{{ organization_name }}"
+        project: "{{ project_name }}"
+        credential: "{{ git_credential[0] }}"
+        description: "{{ common_description }}"
+    !
+    !

@@ -1,0 +1,8 @@
+---
+inventory_name: appc-network-inventory
+inventory_source_name: appc-network-inventory-source
+inventory_source_file_path: inventory/staging.ini
+project_name: some-project
+organization_name: some-organization
+common_description: my description
+credential: git credential
