@@ -1,7 +1,10 @@
 ---
-inventory_name: appc-network-inventory
-inventory_source_name: appc-network-inventory-source
-inventory_source_file_path: inventory/staging.ini
+# inventory vars
+# using 00_ on the name to bring the objects to the top, on the forefront on the UI
+inventory_name: your_AAP_inventory_name
+inventory_source_name: your_AAP_inventory_-source
+inventory_source_file_path: inventory/prod.ini
+inventory_synch_exec_env: your_aap_execution_env_name
 project_name: some-project
 organization_name: some-organization
 common_description: my description
